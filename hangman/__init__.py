@@ -31,5 +31,4 @@ login_manager.login_message_category = "info"
 def load_user(user_id: str) -> int:
     return User.query.get(int(user_id))
 
-
 from hangman import routes

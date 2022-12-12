@@ -5,7 +5,6 @@ from wtforms import (
     SubmitField,
 )
 from wtforms.validators import DataRequired, Email, EqualTo
-from hangman import User
 from flask_wtf.file import FileField, FileAllowed
 
 

@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block content %}
 
-<div class="panel panel-default vspace">
-  <div class="panel-heading">Stats</div>
+<div class="panel thead-dark vspace">
+  <div class="panel-heading thead-dark">Stats</div>
   <table class="table">
     <thead>
       <tr>
@@ -11,8 +11,12 @@
       </tr>
     </thead>
     <td class="text-success">{{ games_played }}</td>
-    <td class="text-danger">{{ win_rate }}%</td>
-    <td class="text-danger">{{ total_guesses }}</td>
+    {% if win_rate >= 50 %}
+        <td class="text-success">{{ win_rate }}%</td>
+        {% else %}
+            <td class="text-danger">{{ win_rate }}%</td>
+        {% endif %}
+    <td class="text-success">{{ total_guesses }}</td>
   </table>
 </div>
 <br />
@@ -32,7 +36,11 @@
             <td>{{ game.date }}</td>
             <td>{{ game.word }}</td>
             <td>{{ game.attempts }}</td>
-            <td>{{ game.result }}</td>
+            {% if game.result == "won" %}
+                <td class="text-success">{{ game.result }}</td>
+                {% else %}
+                <td class="text-danger">{{ game.result }}</td>
+                {% endif %}
         {% endfor %}
     </table>
   </div>

@@ -14,6 +14,7 @@ import logging
 
 logging.basicConfig(filename='hangman/logs/info.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
+
 @app.route("/")
 def index() -> str:
     if current_user.is_authenticated:
