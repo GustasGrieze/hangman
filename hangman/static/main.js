@@ -1,9 +1,6 @@
-/* Submit letter */
-
 $("#letter-form").submit(function (e) {
   var data = $("#letter-form").serialize();
 
-  /* Empty input */
   $("#letter-form input").val("");
 
   $.ajax({
@@ -11,14 +8,11 @@ $("#letter-form").submit(function (e) {
     url: "",
     data: data,
     success: function (data) {
-      /* Refresh if finished */
       if (data.finished) {
         location.reload();
       } else {
-        /* Update current */
         $("#current").text(data.current);
 
-        /* Update errors */
         $("#errors").html(
           "Errors (" +
             data.errors.length +
@@ -28,7 +22,6 @@ $("#letter-form").submit(function (e) {
             "</span>"
         );
 
-        /* Update drawing */
         updateDrawing(data.errors);
       }
     },

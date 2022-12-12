@@ -4,6 +4,8 @@ import random
 from sqlalchemy import DateTime, func
 
 
+MAXIMUM_ALLOWED_ERRORS = 10
+
 def generate_game_id() -> int:
     return random.randint(1e9, 1e10)
 
@@ -46,7 +48,7 @@ class Game(db.Model):
 
     @property
     def lost(self) -> bool:
-        return len(self.errors) == 10
+        return len(self.errors) == MAXIMUM_ALLOWED_ERRORS
 
     @property
     def finished(self) -> bool:
