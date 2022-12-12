@@ -1,8 +1,6 @@
-# Rock Paper Scissors
+# Hangman
 
-“Rock paper scissors” is an effortless and interesting game. Many of us used to play it in school to resolve disputes or just to spend some time. But how do you play it if you don't have any friends?
-
-Simple!
+Hangman is a popular word guessing game where the player attempts to guess a word or phrase by suggesting letters or numbers. The game is won if the player successfully guesses the word, and is lost if they run out of guesses.
 
 ## Installation
 
@@ -12,14 +10,30 @@ From your command line:
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/GustasGrieze/rock-paper-scissors
+$ git clone https://github.com/GustasGrieze/hangman
+```
 
-# Go into the repository
-$ cd rock-paper-scissors
+You'll need to have the required extensions.
 
-# Go into the main folder
-$ cd main_folder
+```bash
+# To install them
+$ pip install -r requirements.txt
+```
 
+Otherwise, you could opt to creating a virtual environment to store the extensions.
+
+```bash
+# Install the virtualenv package
+$ pip install virtualenv
+
+# Create your virtual environment
+$ python -m venv venv
+
+# Activate it
+$ source venv/Scripts/activate
+
+# Finally install the extensions
+$ pip install -r requirements.txt
 ```
 
 ## How To Use
@@ -27,19 +41,17 @@ $ cd main_folder
 From here you can run it by typing:
 
 ```bash
-python main.py
+$ python run.py
 ```
 
-Otherwise if you prefer having an .exe file type:
+Go to your browser and enter the URL **localhost:8000**
 
-```bash
-# Install the required extensions (pyinstaller)
-$ pip install -r requirements.txt
+## Features
 
-# Create the .exe file (Use the provided icon)
-$ pyinstaller.exe --onefile --icon=favicon.ico main.py
-```
-
-You'll find your .exe file in the /dist folder
-
-**After playing check out the results.txt file to see your results**
+- Ability to register and log in
+- Change your name and profile picture
+- Simple art representation of the hangman figure
+- Keeps track of the player's remaining guesses
+- Supports words with letters only
+- Change your name and profile picture
+- Player stats and game history
