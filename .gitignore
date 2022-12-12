@@ -3,5 +3,5 @@
 .vscode
 *.db
 hangman/profile_pictures/*
-!hangman/propfile_pictures/default.png
+!hangman/profile_pictures/default.png
 *.log
