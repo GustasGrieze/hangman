@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="panel panel-default vspace">
+  <div class="panel-heading">Stats</div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Games Played</th>
+        <th>Win Rate</th>
+        <th>Total Guesses</th>
+      </tr>
+    </thead>
+    <td class="text-success">{{ games_played }}</td>
+    <td class="text-danger">{{ win_rate }}%</td>
+    <td class="text-danger">{{ total_guesses }}</td>
+  </table>
+</div>
+<br />
+<br />
+<div class="panel panel-default vspace">
+  <div class="panel-heading">Game History (Last 10 games)</div>
+  <table class="table">
+    <thead>
+        <tr>
+          <th>Date</th>
+          <th>Word</th>
+          <th>Attempts</th>
+          <th>Result</th>
+      <tbody>
+        {% for game in games %}
+          <tr>
+            <td>{{ game.date }}</td>
+            <td>{{ game.word }}</td>
+            <td>{{ game.attempts }}</td>
+            <td>{{ game.result }}</td>
+        {% endfor %}
+    </table>
+  </div>
+
+{% endblock content %}
