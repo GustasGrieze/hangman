@@ -5,6 +5,7 @@ from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
 import logging
 
+
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
 
