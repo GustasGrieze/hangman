@@ -1,10 +1,10 @@
 from typing import Union, Literal
 from requests import Response
 from hangman import app, db, bcrypt, forms
-from sqlalchemy import func, and_, desc
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_required, current_user, login_user, logout_user
-from hangman.models import User, Game, calculate_games_played, calculate_win_rate, calculate_total_guesses, get_last_10_games
+from hangman.models import User, Game
+from hangman.functions import calculate_games_played, calculate_win_rate, calculate_total_guesses, get_last_10_games
 from PIL import Image
 import os
 import secrets
