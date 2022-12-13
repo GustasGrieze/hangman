@@ -2,6 +2,6 @@
 .venv
 .vscode
 *.db
-hangman/profile_pictures/*
-!hangman/profile_pictures/default.png
+hangman/static/profile_pictures/*
+!hangman/static/profile_pictures/default.png
 *.log
