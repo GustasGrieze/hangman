@@ -1,7 +1,7 @@
 from hangman import db
 from sqlalchemy import func, and_, desc
 from flask_login import current_user
-from models import Game, User
+from hangman.models import Game, User
 
 
 def get_last_10_games() -> list:

@@ -53,5 +53,4 @@ Go to your browser and enter the URL **localhost:8000**
 - Simple art representation of the hangman figure
 - Keeps track of the player's remaining guesses
 - Supports words with letters only
-- Change your name and profile picture
 - Player stats and game history
