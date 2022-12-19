@@ -25,6 +25,8 @@ class LoginForm(FlaskForm):
 
 
 class ProfileUpdateForm(FlaskForm):
-    name = StringField('Name', [DataRequired()])
-    picture = FileField('Choose a new profile picture', validators=[FileAllowed(['jpg', 'png'])])
-    submit = SubmitField('Confirm')
+    name = StringField("Name", [DataRequired()])
+    picture = FileField(
+        "Choose a new profile picture", validators=[FileAllowed(["jpg", "png"])]
+    )
+    submit = SubmitField("Confirm")

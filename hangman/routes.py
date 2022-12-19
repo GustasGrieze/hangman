@@ -4,7 +4,12 @@ from hangman import app, db, bcrypt, forms
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_required, current_user, login_user, logout_user
 from hangman.models import User, Game
-from hangman.functions import calculate_games_played, calculate_win_rate, calculate_total_guesses, get_last_10_games
+from hangman.functions import (
+    calculate_games_played,
+    calculate_win_rate,
+    calculate_total_guesses,
+    get_last_10_games,
+)
 from PIL import Image
 import os
 import secrets
@@ -12,7 +17,11 @@ import flask
 import logging
 
 
-logging.basicConfig(filename='hangman/logs/info.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
+logging.basicConfig(
+    filename="hangman/logs/info.log",
+    level=logging.INFO,
+    format="%(asctime)s:%(levelname)s:%(message)s",
+)
 
 
 @app.route("/")
@@ -54,8 +63,8 @@ def register() -> Union[Response, str]:
             db.session.add(user)
             db.session.commit()
             flash(
-            f"User: {form.email.data} was successfully created, please log in",
-            "success",
+                f"User: {form.email.data} was successfully created, please log in",
+                "success",
             )
             logging.info(f"User: {form.email.data} was created")
             return redirect(url_for("login"))
@@ -114,7 +123,9 @@ def play(game_id) -> Union[Response, str]:
             game.try_letter(letter)
         if game.finished:
             game.update_result()
-            logging.info(f"User ID={current_user.get_id()} {game.result} game {game.id}")
+            logging.info(
+                f"User ID={current_user.get_id()} {game.result} game {game.id}"
+            )
     if request.headers.get("X-Requested-With") == "XMLHttpRequest":
         return flask.jsonify(
             current=game.current, errors=game.errors, finished=game.finished
@@ -125,11 +136,13 @@ def play(game_id) -> Union[Response, str]:
 @app.route("/stats")
 @login_required
 def stats() -> str:
-    games_played = calculate_games_played()
-    win_rate = calculate_win_rate()
-    total_guesses = calculate_total_guesses()
-    games = get_last_10_games()
-    return render_template("stats.html", games_played=games_played, win_rate=win_rate, total_guesses=total_guesses, games=games)
+    return render_template(
+        "stats.html",
+        games_played=calculate_games_played(),
+        win_rate=calculate_win_rate(),
+        total_guesses=calculate_total_guesses(),
+        games=get_last_10_games(),
+    )
 
 
 @app.route("/main")

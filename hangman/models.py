@@ -10,8 +10,9 @@ MAXIMUM_ALLOWED_ERRORS = 10
 def generate_game_id() -> int:
     return random.randint(1e9, 1e10)
 
+
 def choose_random_word() -> str:
-    words = [line.rstrip() for line in open('hangman/static/words.txt')]
+    words = [line.rstrip() for line in open("hangman/static/words.txt")]
     return random.choice(words).upper()
 
 
@@ -33,7 +34,6 @@ class Game(db.Model):
     result = db.Column(db.String(50))
     date = db.Column(DateTime, default=func.now())
     user = db.relationship("User", backref=db.backref("user", uselist=False))
-
 
     @property
     def errors(self) -> str:

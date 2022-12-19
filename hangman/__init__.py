@@ -6,7 +6,7 @@ from flask_bcrypt import Bcrypt
 import logging
 
 
-log = logging.getLogger('werkzeug')
+log = logging.getLogger("werkzeug")
 log.setLevel(logging.ERROR)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -31,5 +31,6 @@ login_manager.login_message_category = "info"
 @login_manager.user_loader
 def load_user(user_id: str) -> int:
     return User.query.get(int(user_id))
+
 
 from hangman import routes
